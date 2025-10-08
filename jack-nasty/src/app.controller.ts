@@ -1,4 +1,6 @@
-import { Controller, Get, Render } from '@nestjs/common';
+// src/app.controller.ts
+
+import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -6,12 +8,8 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  @Render('index') // <--- Usa o decorador Render para o template 'index.hbs'
-  getHello() {
-    // Retorna um objeto com os dados que serão injetados no template ({{message}}, {{title}})
-    return { 
-      message: this.appService.getHello(), // A mensagem 'Hello World!' vem do Service
-      title: 'Página Inicial do NestJS' 
-    };
+  // Deve retornar uma string, não um objeto
+  getHello(): string {
+    return this.appService.getHello();
   }
 }
