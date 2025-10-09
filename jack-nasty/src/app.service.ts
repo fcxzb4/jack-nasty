@@ -6,3 +6,9 @@ export class AppService {
     return 'Hello World!';
   }
 }
+@Injectable()
+export class cardDatabase{
+  getfindOne():number{
+  return 
+  }
+}
