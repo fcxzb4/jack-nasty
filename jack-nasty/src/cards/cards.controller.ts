@@ -1,6 +1,6 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
 import { CardService } from './cards.service';
-import { Card } from './model/card_model';
+import type { Card } from './model/card_model';
 
 @Controller('card')
 export class CardController {
@@ -10,13 +10,17 @@ export class CardController {
   findAll(): Card[] {
     return this.cardService.findAll();
   }
-}
-@Controller('id')
-export class IdController {
-  constructor(private readonly cardService: CardService) {}
 
-  @Get()
-  findId(): Number[] {
-    return this.cardService.findId();
+  @Get('stock')
+  findInStock(): Card[] {
+     const stock = this.cardService.findInStock()
+     return stock
   }
+  
+  @Get(':id')
+  findOne(@Param('id',ParseIntPipe) id: number): Card {
+    const card = this.cardService.findOne(id); 
+    return card;
+  }
+
 }

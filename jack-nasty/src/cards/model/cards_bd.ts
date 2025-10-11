@@ -3,19 +3,85 @@ import { Card } from './card_model';
 export let nextId = 16;
 
 export const cardDatabase: Card[] = [
-  { id: 1, holderName: "Ana Souza", lastFourDigits: "4321", flag: "MasterCard", expirationDate: "11/27", isActive: true, createdAt: new Date() },
-  { id: 2, holderName: "Bruno Alves", lastFourDigits: "8765", flag: "Visa", expirationDate: "10/26", isActive: true, createdAt: new Date() },
-  { id: 3, holderName: "Carla Pires", lastFourDigits: "1111", flag: "Elo", expirationDate: "03/24", isActive: false, createdAt: new Date() },
-  { id: 4, holderName: "Daniel Melo", lastFourDigits: "9999", flag: "Amex", expirationDate: "01/25", isActive: true, createdAt: new Date() },
-  { id: 5, holderName: "Erica Goes", lastFourDigits: "5001", flag: "Visa", expirationDate: "11/26", isActive: true, createdAt: new Date() },
-  { id: 6, holderName: "Fernando Reis", lastFourDigits: "5002", flag: "MasterCard", expirationDate: "07/25", isActive: true, createdAt: new Date() },
-  { id: 7, holderName: "Giovana Vianna", lastFourDigits: "5003", flag: "Elo", expirationDate: "04/24", isActive: false, createdAt: new Date() },
-  { id: 8, holderName: "Hugo Zang", lastFourDigits: "5004", flag: "Visa", expirationDate: "09/27", isActive: true, createdAt: new Date() },
-  { id: 9, holderName: "Isabela Lara", lastFourDigits: "5005", flag: "Amex", expirationDate: "12/26", isActive: true, createdAt: new Date() },
-  { id: 10, holderName: "João Teixeira", lastFourDigits: "5006", flag: "MasterCard", expirationDate: "06/25", isActive: true, createdAt: new Date() },
-  { id: 11, holderName: "Kelly Santos", lastFourDigits: "5007", flag: "Visa", expirationDate: "08/24", isActive: true, createdAt: new Date() },
-  { id: 12, holderName: "Lucas Morais", lastFourDigits: "5008", flag: "Elo", expirationDate: "02/27", isActive: true, createdAt: new Date() },
-  { id: 13, holderName: "Mariana Costa", lastFourDigits: "5009", flag: "MasterCard", expirationDate: "03/26", isActive: true, createdAt: new Date() },
-  { id: 14, holderName: "Nelson Dias", lastFourDigits: "5010", flag: "Visa", expirationDate: "07/25", isActive: true, createdAt: new Date() },
-  { id: 15, holderName: "Olivia Gomes", lastFourDigits: "5011", flag: "Amex", expirationDate: "04/24", isActive: true, createdAt: new Date() },
+
+    {
+        id: 1,
+        title: "braia de tarbalho",
+        description: "Conforto para os trabalhos mais arduos de sua casa.",
+        stock:true  ,
+        price: "199,90",
+        image: "https://s2.glbimg.com/bTq3D0I6ai101S6TcNqGEa1hdHY=/1200x630/s.glbimg.com/jo/g1/f/original/2015/11/27/coldplay.jpg"
+    },
+    {
+        id: 2,
+        title: "braia de instrumento",
+        stock:true  ,
+        description: "A escolha perfeita para os fins de semana.",
+        price: "69,90",
+        image: "https://s2.glbimg.com/bTq3D0I6ai101S6TcNqGEa1hdHY=/1200x630/s.glbimg.com/jo/g1/f/original/2015/11/27/coldplay.jpg"
+    },
+    {
+        id: 3,
+        title: "braia pensamentos pensantes ",
+        stock:false  ,
+        description: "Alta performance em um design de pura intelectualidade.",
+        price: "cogito ergo vruum vruum",
+        image: "https://media.istockphoto.com/id/1442902261/pt/foto/closeup-shot-of-a-chimpanzee-making-a-thinking-posture.jpg?s=612x612&w=0&k=20&c=DlpvVMsryCPjIrrEkSihmt37SSttVrDAVJ6hflJog3E="
+    },
+    {
+        id: 4,
+        title: "braia chofer",
+        stock: true ,
+        description: "Som de alta definição, sem fios e motorista.",
+        price: "349,00",
+        image: "https://preview.redd.it/pu0me6h2kh571.png?width=640&crop=smart&auto=webp&s=ab45f2aa1c49ff93c5ab23345a849588a2180a45"
+    },
+    {
+        id: 5,
+        title: "braia desbravador",
+        stock:false  ,
+        description: "Um ser muito atrevido.",
+        price: "Elon Musk",
+        image: "https://static.nationalgeographicbrasil.com/files/styles/image_3200/public/mono-carvoeiro-2.webp?w=1600&h=1600"
+    },
+      {
+        id: 6,
+        title: "braia espacial",
+        stock:  true,
+        description: "Ele vai aonde nescessario para o serviço.",
+        price: "4.500,00",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-TGvCzduXWj43A8wGmw3bf7DhKwIX-ZkUwQ&s"
+    },
+      {
+        id: 7,
+        title: "braia do job",
+        stock: false ,
+        description: "Ele aguenta muita coisa calado.",
+        price: "2,090,91",
+        image: "https://cdn.ahnegao.com.br/wp-content/uploads/2014/07/ferias.jpg"
+    },
+      {
+        id: 8,
+        title: "braia da crakolandia",
+        stock:false,
+        description: "Aparece e furta seus pertences para utilização recreativa.",
+        price: "90.130,e quebrados",
+        image: "https://miro.medium.com/1*wYGx-xlexcMzMPGSg5NCFg.jpeg"
+    },
+      {
+        id: 9,
+        title: "braia selvagem",
+        stock:  true,
+        description: "Um otima guarda costa de sua casa.",
+        price: "3,200,00",
+        image: "https://c.files.bbci.co.uk/877B/production/_126038643_gettyimages-1048896140.jpg"
+    },
+      {
+        id: 10,
+        title: "Droga e o braia ",
+        stock:true  ,
+        description: "Aonde ele aparece ja e mal recebido.",
+        price: "valor de um skyline",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgyMpadkx4tmGeJMVR0xcs_iBF9wiDdVCOuA&s"
+    },
 ];
