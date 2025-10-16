@@ -22,4 +22,25 @@ export class CardService {
     const filteredCards = cardDatabase.filter((card) => card.stock === true);
     return filteredCards;
   }
+
+  createCard(bodyData: any): string {
+    bodyData.id = Date.now();
+    bodyData.stock = true;
+    cardDatabase.push(bodyData);
+    return 'para-bens';
+  }
+
+  deleteCard(deletecard: number): Card {
+    const cardIndex = cardDatabase.findIndex(
+      (card) => card.id === deletecard - 1,
+    );
+    if (cardIndex === -1) {
+      throw new NotFoundException(
+        `Cartão com ID ${deletecard} não encontrado para exclusão.`,
+      );
+    }
+    const deletedCard = cardDatabase.splice(cardIndex, 1)[0];
+
+    return deletedCard;
+  }
 }

@@ -1,7 +1,5 @@
 import { Card } from './card_model';
 
-export let nextId = 16;
-
 export const cardDatabase: Card[] = [
 
     {
