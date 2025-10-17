@@ -37,7 +37,7 @@ export class CardService {
 
   deleteCard(deletecard: number): Card {
     const cardIndex = cardDatabase.findIndex(
-      (card) => card.id === deletecard - 1,
+      (cardDatabase) => cardDatabase.id === deletecard - 1,
     );
     if (cardIndex === -1) {
       throw new NotFoundException(
