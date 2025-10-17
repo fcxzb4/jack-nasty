@@ -30,6 +30,11 @@ export class CardService {
     return 'para-bens';
   }
 
+  updateCard(id: number): string{
+    
+    return 'sucesso';
+  }
+
   deleteCard(deletecard: number): Card {
     const cardIndex = cardDatabase.findIndex(
       (card) => card.id === deletecard - 1,
@@ -43,4 +48,6 @@ export class CardService {
 
     return deletedCard;
   }
+
+
 }

@@ -37,17 +37,10 @@ export class CardController {
     return this.cardService.createCard(bodyData);
   }
 
-  @Put(':id/price')
-  addProm(@Param('id', ParseIntPipe) id: number) {
-    return 'desconto dado';
-  }
-
-  @Put(':id/description')
-  updateDescription(
-    @Param('id', ParseIntPipe) id: string,
-    @Body() bodyData: any,
-  ) {
-    return 'absolute sucesso';
+  @Put(':id')
+  updateCard(@Param('id', ParseIntPipe) id: number) {
+    const putCard = this.cardService.updateCard(id);
+    return putCard;
   }
 
   @Delete(':id')
