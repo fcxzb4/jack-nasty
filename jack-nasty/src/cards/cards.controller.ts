@@ -38,8 +38,8 @@ export class CardController {
   }
 
   @Put(':id')
-  updateCard(@Param('id', ParseIntPipe) id: number) {
-    const putCard = this.cardService.updateCard(id);
+  updateCard(@Param('id', ParseIntPipe) id: number, @Body() bodyData : any) {
+    const putCard = this.cardService.updateCard(id, bodyData);
     return putCard;
   }
 

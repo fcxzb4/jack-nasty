@@ -23,21 +23,27 @@ export class CardService {
     return filteredCards;
   }
 
-  createCard(bodyData: any): string {
+  createCard(bodyData: any){
     bodyData.id = Date.now();
     bodyData.stock = true;
     cardDatabase.push(bodyData);
-    return 'para-bens';
+    return bodyData;
   }
 
-  updateCard(id: number): string{
-    
-    return 'sucesso';
+  updateCard(id: number, body: any){
+    const cardIndex = cardDatabase.findIndex((card) => card.id === id);
+    if (cardIndex === -1) {
+      return 'Erro: Cartão não encontrado.';
+    }
+    const originalCard = cardDatabase[cardIndex];
+    cardDatabase[cardIndex] = { ...originalCard, ...body };
+
+    return cardDatabase[cardIndex];
   }
 
   deleteCard(deletecard: number): Card {
     const cardIndex = cardDatabase.findIndex(
-      (cardDatabase) => cardDatabase.id === deletecard - 1,
+      (cardDatabase) => cardDatabase.id === deletecard,
     );
     if (cardIndex === -1) {
       throw new NotFoundException(
@@ -45,9 +51,6 @@ export class CardService {
       );
     }
     const deletedCard = cardDatabase.splice(cardIndex, 1)[0];
-
     return deletedCard;
   }
-
-
 }
