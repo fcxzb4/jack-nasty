@@ -8,7 +8,12 @@ export class CardService {
   findAll(): Card[] {
     return cardDatabase;
   }
-
+  
+  findInStock(): Card[] {
+    const filteredCards = cardDatabase.filter((card) => card.stock === true);
+    return filteredCards;
+  }
+  
   findOne(id: number): Card {
     const card = cardDatabase.find((card) => card.id === id);
 
@@ -18,10 +23,6 @@ export class CardService {
     return card;
   }
 
-  findInStock(): Card[] {
-    const filteredCards = cardDatabase.filter((card) => card.stock === true);
-    return filteredCards;
-  }
 
   createCard(bodyData: any){
     bodyData.id = Date.now();
