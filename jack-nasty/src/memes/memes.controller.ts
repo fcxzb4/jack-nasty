@@ -1,42 +1,42 @@
 import {Body,Controller,Delete,Get,Param,ParseIntPipe,Post,Put,} from '@nestjs/common';
-import { CardService } from './cards.service';
-import type { Card } from './model/card_model';
+import { MemeService } from './memes.service';
+import type { Card } from './model/meme_model';
 
-@Controller('card') 
-export class CardController {
-  constructor(private readonly cardService: CardService) {}
+@Controller('meme')
+export class MemeController {
+  constructor(private readonly MemeService: MemeService) {}
 
   @Get()
   findAll(): Card[] {
-    return this.cardService.findAll();
+    return this.MemeService.findAll();
   }
 
-  @Get('stock')
+  @Get('meme-stock')
   findInStock(): Card[] {
-    const stock = this.cardService.findInStock();
+    const stock = this.MemeService.findInStock();
     return stock;
   }
 
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number): Card {
-    const card = this.cardService.findOne(id);
+    const card = this.MemeService.findOne(id);
     return card;
   }
 
   @Post()
   createCard(@Body() bodyData: any) {
-    return this.cardService.createCard(bodyData);
+    return this.MemeService.createCard(bodyData);
   }
 
   @Put(':id')
   updateCard(@Param('id', ParseIntPipe) id: number, @Body() bodyData: any) {
-    const putCard = this.cardService.updateCard(id, bodyData);
+    const putCard = this.MemeService.updateCard(id, bodyData);
     return putCard;
   }
 
   @Delete(':id')
   deleteCard(@Param('id', ParseIntPipe) id: number): Card {
-    const deleteCard = this.cardService.deleteCard(id);
+    const deleteCard = this.MemeService.deleteCard(id);
     return deleteCard;
   }
 }
