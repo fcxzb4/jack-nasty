@@ -12,12 +12,11 @@ async function bootstrap() {
   
   app.useGlobalPipes(
     new ValidationPipe({
-      whitelist: true,
-      transform: true,
-      forbidNonWhitelisted: true,
+      whitelist: true, // Remove campos que não estão no DTO
+      forbidNonWhitelisted: true, // Lança um erro se campos extras forem enviados
     }),
   );
-  
+
   await app.listen(3001);
 }
 bootstrap();

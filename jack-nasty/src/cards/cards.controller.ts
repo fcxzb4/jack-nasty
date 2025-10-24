@@ -1,5 +1,7 @@
 import {Body,Controller,Delete,Get,Param,ParseIntPipe,Post,Put,} from '@nestjs/common';
 import { CardService } from './cards.service';
+import { CreateMemeDto } from "./dto/create-cards.dto"
+import { UpdateMemeDto } from "./dto/update-cards.dto"
 import type { Card } from './model/card_model';
 
 @Controller('card') 
@@ -24,14 +26,13 @@ export class CardController {
   }
 
   @Post()
-  createCard(@Body() bodyData: any) {
-    return this.cardService.createCard(bodyData);
+  createCard(@Body() createMemeDto: CreateMemeDto) {
+    return this.cardService.createCard(createMemeDto);
   }
 
   @Put(':id')
-  updateCard(@Param('id', ParseIntPipe) id: number, @Body() bodyData: any) {
-    const putCard = this.cardService.updateCard(id, bodyData);
-    return putCard;
+  updateCard(@Param('id', ParseIntPipe) id: number, @Body() updateMemeDto: UpdateMemeDto) {
+    const putCard = this.cardService.updateCard(id, updateMemeDto)
   }
 
   @Delete(':id')

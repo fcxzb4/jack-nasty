@@ -1,5 +1,7 @@
 import {Body,Controller,Delete,Get,Param,ParseIntPipe,Post,Put,} from '@nestjs/common';
 import { MemeService } from './memes.service';
+import { UpdateMemeDto } from "./dto/upadte-meme.dto"
+import { CreateMemeDto } from './dto/create-meme.dto'
 import type { Card } from './model/meme_model';
 
 @Controller('meme')
@@ -24,18 +26,18 @@ export class MemeController {
   }
 
   @Post()
-  createCard(@Body() bodyData: any) {
-    return this.MemeService.createCard(bodyData);
+  createCard(@Body() createMemeDto: CreateMemeDto) {
+    return this.MemeService.createCard(createMemeDto);
   }
 
   @Put(':id')
-  updateCard(@Param('id', ParseIntPipe) id: number, @Body() bodyData: any) {
-    const putCard = this.MemeService.updateCard(id, bodyData);
+  updateCard(@Param('id', ParseIntPipe) id: number, @Body() updateMemeDto: UpdateMemeDto) {
+    const putCard = this.MemeService.updateCard(id, updateMemeDto);
     return putCard;
   }
 
   @Delete(':id')
-  deleteCard(@Param('id', ParseIntPipe) id: number): Card {
+  deleteCard(@Param('id', ParseIntPipe) id: number): Card {   
     const deleteCard = this.MemeService.deleteCard(id);
     return deleteCard;
   }
