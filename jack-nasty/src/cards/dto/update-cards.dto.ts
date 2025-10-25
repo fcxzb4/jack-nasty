@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, IsOptional, IsUrl, IsBoolean } from 'class-validator';
+import { IsString, IsNotEmpty, IsOptional, IsUrl, IsBoolean, IsNumber } from 'class-validator';
 
 /**
  * Este é o nosso "molde" para criar um novo Meme.
@@ -9,27 +9,28 @@ export class UpdateMemeDto {
   // @IsString()   = Tem que ser um texto (string)
   @IsString()
   @IsOptional()
-  title: string;
+  title?: string;
 
   @IsOptional()
   @IsString()
-  price: string;
+  price?: string;
 
   @IsOptional()
-  @IsString()
-  id: number;
+  @IsNumber()
+  id?: number;
 
   @IsOptional()
   @IsBoolean()
-  stock: boolean
+  stock?: boolean
   // @IsOptional() = Este campo é opcional, pode vir vazio
   
   @IsOptional()
   @IsString()
-  description: string; // O '?' diz ao TypeScript que este campo é opcional
+  description?: string; // O '?' diz ao TypeScript que este campo é opcional
 
   // @IsUrl() = Verifica se é uma URL válida (ex: http://...)
   
   @IsUrl()
-  image: string;
+  @IsOptional()
+  image?: string;
 }
