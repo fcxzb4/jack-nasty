@@ -1,5 +1,6 @@
-import {User} from './user.interface'
+import { UserI } from "./user.interface";
 
-export class users: User[] = [
 
-]
+export const users: UserI [] = [
+
+];

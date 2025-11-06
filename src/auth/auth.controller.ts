@@ -1,5 +1,6 @@
-import { Controller, Get, Param } from '@nestjs/common';
-import {Body,Controller,Delete,Get,Param,ParseIntPipe,Post,Put,NotFoundException,} from '@nestjs/common';
+import {Body,Controller,Post,} from '@nestjs/common';
+import { AuthService } from './auth.service';
+import { RegisterDto } from './dto/register.dto';
 
 
 @Controller('auth')
@@ -8,6 +9,7 @@ export class AuthController{
   
   @Post('register')
   async register(@Body() registerDto: RegisterDto) {
+    console.log(registerDto)
     return this.authService.register(registerDto);
   }
 }

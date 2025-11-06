@@ -1,9 +1,9 @@
 import { IsEmail, IsNotEmpty, IsString, MinLength } from 'class-validator';
 
-export class RegisterDTO {
+export class RegisterDto {
   @IsString()
   @IsNotEmpty({ message: 'O nome não pode estar vazio.' })
-  nome: string;
+  name: string;
 
   @IsEmail({}, { message: 'Por favor, insira um e-mail válido.' })
   @IsNotEmpty({ message: 'O e-mail não pode estar vazio.' })
@@ -12,5 +12,9 @@ export class RegisterDTO {
   @IsString()
   @IsNotEmpty({ message: 'A senha não pode estar vazia.' })
   @MinLength(8, { message: 'A senha deve ter no mínimo 8 caracteres.' })
-  senha: string;
+  password: string;
+
+  @IsString()
+  @IsNotEmpty()
+  bd: string;
 }
