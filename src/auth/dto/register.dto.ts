@@ -13,8 +13,4 @@ export class RegisterDto {
   @IsNotEmpty({ message: 'A senha não pode estar vazia.' })
   @MinLength(8, { message: 'A senha deve ter no mínimo 8 caracteres.' })
   password: string;
-
-  @IsString()
-  @IsNotEmpty()
-  bd: string;
 }
