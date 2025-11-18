@@ -7,15 +7,14 @@ import { JwtStrategy } from './strategis/jwt.strategy';
 
 @Module({
   imports: [
-    PassportModule.register({defaultStrategy: "jwt"}),
+    PassportModule.register({ defaultStrategy: "jwt" }),
     JwtModule.register({
-      secret:"SEU_SEGREDO_SUPER_SECRETO_E_LONGO_123456",
-      signOptions:{
-        expiresIn:'1h'
-      }
+      secret: "PELO_AMOR_DE_DEUS_SEU_JOAO_1234",
+      signOptions: { expiresIn: '1h' },
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthService, JwtStrategy],
+  providers: [AuthService, JwtStrategy], // OBRIGATÓRIO!
+  exports: [AuthService],
 })
 export class AuthModule {}
