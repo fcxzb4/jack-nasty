@@ -1,6 +1,3 @@
-// src/app.controller.ts
-// src/app.controller.ts
-
 import { Controller, Get, Param } from '@nestjs/common';
 import { AppService } from './app.service';
 
